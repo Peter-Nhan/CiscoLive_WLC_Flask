@@ -1,0 +1,34 @@
+version: '3'
+services:
+
+#Flask App Container
+  flask:
+    build:
+      context: gunicorn-flask-python-app
+      dockerfile: dockerfile
+    container_name: flask-gunicorn-python-app
+    image: flask-gunicorn-python-app
+    restart: unless-stopped
+    networks:
+      - CiscoLive
+    expose:
+       - "8081"
+#NGINX App Container
+  nginx:
+    build:
+      context: nginx
+      dockerfile: dockerfile
+    container_name: nginx-app
+    image: nginx-app
+    restart: unless-stopped
+    networks:
+      - CiscoLive
+    ports:
+       - "8088:80"
+       # externally maps 8088:80 then nginx config maps to container name port 8081
+#Docker Networks
+networks:
+  CiscoLive:
+      driver: bridge
+      name: CiscoLive
+      # prevents prepend folder name to the name
