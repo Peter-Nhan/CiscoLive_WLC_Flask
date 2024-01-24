@@ -23,7 +23,6 @@
             </a>
             <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
               <li><a class="dropdown-item" href="{{ url_for('show_ap_summary') }}">show ap summary</a></li>
-              <li><a class="dropdown-item" href="{{ url_for('wlan_all') }}">show wlan all | include Network Name|Number of Active Clients</a></li>
               <li><a class="dropdown-item" href="{{ url_for('ap_sum_client') }}">show ap summary sort descending client-count</a></li>
               <li><a class="dropdown-item" href="{{ url_for('ap_sum_data') }}">show ap summary sort descending data-usage</a></li>
             </ul>
@@ -47,10 +46,6 @@
         <tr>
             <td><a href="{{ url_for('show_ap_summary') }}">show ap summary</a></td>
             <td>Registered AP, name, IP address </td>
-        </tr>
-        <tr>
-            <td><a href="{{ url_for('wlan_all') }}">show wlan all | include Network Name|Number of Active Clients</a></td>
-            <td>Number of client per SSID</td>
         </tr>
 	<tr>
             <td><a href="{{ url_for('ap_sum_client') }}">show ap summary sort descending client-count</a></td>
